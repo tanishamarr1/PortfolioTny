@@ -1,0 +1,103 @@
+/* ===========================================================
+   animations.css — keyframes, reveal states, micro-interactions
+   =========================================================== */
+
+@keyframes pulse-dot{
+  0%, 100%{ box-shadow:0 0 0 4px var(--pink-dim); }
+  50%{ box-shadow:0 0 0 8px transparent; }
+}
+
+@keyframes float-y{
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(-14px); }
+}
+
+@keyframes spin-slow{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+@keyframes shimmer{
+  0%{ background-position:-200% 0; }
+  100%{ background-position:200% 0; }
+}
+
+/* ===== scroll reveal ===== */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(36px);
+  filter:blur(6px);
+  transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease),
+    filter .9s var(--ease);
+  transition-delay:var(--reveal-delay, 0ms);
+}
+[data-reveal].is-visible{
+  opacity:1; transform:translateY(0); filter:blur(0);
+}
+
+/* stagger applies via inline custom property set in JS */
+
+/* ===== floating ambient elements ===== */
+.bg-orb--one{ animation:float-y 9s ease-in-out infinite; }
+.bg-orb--two{ animation:float-y 11s ease-in-out infinite reverse; }
+
+/* ===== magnetic buttons (translate handled in JS, this adds smoothing) ===== */
+.magnetic{
+  transition:transform .25s var(--ease);
+  will-change:transform;
+}
+
+/* ===== tilt cards (perspective handled in JS) ===== */
+.tilt-card{
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  will-change:transform;
+}
+.tilt-card:hover{
+  border-color:var(--line-strong);
+  box-shadow:0 24px 60px -24px rgba(255,45,146,0.18);
+}
+
+/* ===== glowing border sweep on glass cards ===== */
+.glass-card{
+  --glow-x:50%; --glow-y:50%;
+}
+.glass-card::after{
+  content:'';
+  position:absolute; inset:0; border-radius:inherit; opacity:0;
+  background:radial-gradient(220px circle at var(--glow-x) var(--glow-y), rgba(255,45,146,0.16), transparent 70%);
+  transition:opacity .4s var(--ease);
+  pointer-events:none;
+}
+.glass-card:hover::after{ opacity:1; }
+
+/* ===== robot subtle idle motion ===== */
+.robot-svg{
+  animation:float-y 6s ease-in-out infinite;
+}
+.robot-antenna, .robot-core{
+  animation:pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* ===== hero scroll hint line shimmer ===== */
+.hero-scroll-line::after{
+  content:'';
+  position:absolute; left:0; top:-100%; width:100%; height:50%;
+  background:linear-gradient(var(--pink-soft), transparent);
+  animation:scroll-line-fall 1.8s ease-in-out infinite;
+}
+@keyframes scroll-line-fall{
+  0%{ top:-50%; }
+  100%{ top:100%; }
+}
+
+/* ===== loader letters stagger ===== */
+.loader-mark span{ transition:opacity .4s var(--ease), transform .4s var(--ease); transform:translateY(6px); }
+.loader-mark span.is-on{ opacity:1; transform:translateY(0); }
+
+/* ===== reduced motion ===== */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  [data-reveal]{ opacity:1; transform:none; filter:none; }
+}

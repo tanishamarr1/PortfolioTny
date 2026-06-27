@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanisha María — Web Developer & UX/UI Designer</title>
+<meta name="description" content="Portfolio de Tanisha María, Web Developer y UX/UI & Email Designer. Diseño y desarrollo web, branding e interfaces de producto." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div class="loader" id="loader">
+  <div class="loader-mark">
+    <span>T</span><span>M</span>
+  </div>
+  <div class="loader-bar"><div class="loader-bar-fill" id="loaderFill"></div></div>
+</div>
+
+<!-- ===== SCROLL PROGRESS ===== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== CUSTOM CURSOR ===== -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ===== ANIMATED BACKGROUND ===== -->
+<canvas id="particles" class="bg-particles"></canvas>
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb--one"></div>
+<div class="bg-orb bg-orb--two"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <a href="#home" class="nav-logo">TM<span class="dot">.</span></a>
+  <nav class="nav-links">
+    <a href="#about" data-link>Sobre mí</a>
+    <a href="#skills" data-link>Skills</a>
+    <a href="#experience" data-link>Experiencia</a>
+    <a href="#services" data-link>Servicios</a>
+    <a href="#projects" data-link>Proyectos</a>
+    <a href="#contact" data-link>Contacto</a>
+  </nav>
+  <a href="#contact" class="btn btn-ghost nav-cta magnetic">Hablemos</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy reveal" data-reveal>
+      <p class="eyebrow"><span class="eyebrow-dot"></span> Disponible para nuevos proyectos</p>
+      <h1 class="hero-title">
+        <span class="hero-title-line">Tanisha María</span>
+        <span class="hero-title-line hero-title-accent">Web Developer +</span>
+        <span class="hero-title-line hero-title-accent">UX/UI &amp; Email Designer</span>
+      </h1>
+      <p class="hero-text">
+        Diseño y desarrollo interfaces responsivas, accesibles y memorables.
+        Combino C#, .NET y SQL Server en el backend con HTML, CSS y
+        JavaScript en el frontend para construir productos que se sienten
+        tan bien como se ven.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnetic">
+          Ver mi trabajo <span class="btn-arrow">→</span>
+        </a>
+        <a href="#contact" class="btn btn-outline magnetic">Contáctame</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/tanishamarr1" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/tanishaamr1/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+        <a href="https://www.instagram.com/tanishaamr_/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/profile.php?id=100051513095793" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+
+    <div class="hero-figure reveal" data-reveal data-reveal-delay="150">
+      <div class="robot-stage" id="robotStage">
+        <div class="robot-glow"></div>
+        <svg id="robotSvg" class="robot-svg" viewBox="0 0 320 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a2a30"/>
+              <stop offset="100%" stop-color="#101013"/>
+            </linearGradient>
+            <radialGradient id="visorGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ff6ec7"/>
+              <stop offset="100%" stop-color="#ff2d92" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <ellipse cx="160" cy="360" rx="90" ry="14" fill="#ff2d92" opacity="0.08"/>
+
+          <g id="robotArmL">
+            <rect x="60" y="160" width="26" height="100" rx="13" fill="url(#metal)" stroke="#3a3a42"/>
+            <circle cx="73" cy="260" r="14" fill="#1a1a1e" stroke="#ff2d92" stroke-width="2"/>
+          </g>
+          <g id="robotArmR">
+            <rect x="234" y="160" width="26" height="100" rx="13" fill="url(#metal)" stroke="#3a3a42"/>
+            <circle cx="247" cy="260" r="14" fill="#1a1a1e" stroke="#ff2d92" stroke-width="2"/>
+          </g>
+
+          <g id="robotTorso">
+            <rect x="95" y="150" width="130" height="140" rx="28" fill="url(#metal)" stroke="#3a3a42" stroke-width="1.5"/>
+            <rect x="120" y="180" width="80" height="6" rx="3" fill="#ff2d92" opacity="0.5"/>
+            <rect x="120" y="200" width="50" height="6" rx="3" fill="#54545c"/>
+            <circle cx="160" cy="240" r="22" fill="#0c0c0e" stroke="#ff2d92" stroke-width="1.5"/>
+            <circle cx="160" cy="240" r="9" fill="#ff2d92" class="robot-core"/>
+          </g>
+
+          <g id="robotHead">
+            <rect x="110" y="40" width="100" height="90" rx="34" fill="url(#metal)" stroke="#3a3a42" stroke-width="1.5"/>
+            <rect x="128" y="68" width="64" height="34" rx="17" fill="#0a0a0c"/>
+            <circle cx="148" cy="85" r="22" fill="url(#visorGlow)" opacity="0.65"/>
+            <circle cx="172" cy="85" r="22" fill="url(#visorGlow)" opacity="0.65"/>
+            <circle cx="148" cy="85" r="6" fill="#ffe3f3" class="robot-eye"/>
+            <circle cx="172" cy="85" r="6" fill="#ffe3f3" class="robot-eye"/>
+            <rect x="150" y="20" width="20" height="22" rx="6" fill="#1a1a1e" stroke="#3a3a42"/>
+            <circle cx="160" cy="18" r="6" fill="#ff2d92" class="robot-antenna"/>
+          </g>
+        </svg>
+        <div class="robot-shadow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section" id="about">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Sobre mí</p>
+    <h2 class="section-title">Construyo software con<br/><span class="text-accent">criterio de diseño</span></h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text reveal" data-reveal>
+      <p>
+        Soy <strong>Tanisha María</strong>, desarrolladora de software y diseñadora
+        UX/UI especializada en crear interfaces responsivas, centradas en el
+        usuario, y diseños de email con alto impacto visual.
+      </p>
+      <p>
+        Tengo experiencia en C#, .NET y SQL Server, además de las tecnologías
+        front-end clásicas — HTML, CSS y JavaScript. Mi enfoque está en
+        construir soluciones funcionales, estéticas y accesibles que mejoran
+        la experiencia real de quien las usa.
+      </p>
+      <a href="#contact" class="link-arrow magnetic">Trabajemos juntas <span>→</span></a>
+    </div>
+
+    <div class="about-card reveal" data-reveal data-reveal-delay="100">
+      <div class="glass-card tilt-card">
+        <div class="about-stat-grid">
+          <div class="about-stat">
+            <span class="about-stat-num" data-count="1">0</span>
+            <span class="about-stat-label">Año de experiencia</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-count="20">0</span>
+            <span class="about-stat-label">Proyectos completados</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-count="10">0</span>
+            <span class="about-stat-label">Clientes felices</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-count="12">0</span>
+            <span class="about-stat-label">Skills dominadas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-pillars">
+    <div class="pillar glass-card tilt-card reveal" data-reveal>
+      <span class="pillar-icon">⌗</span>
+      <h3>Código limpio</h3>
+      <p>Componentes mantenibles, nombrados con intención y listos para escalar.</p>
+    </div>
+    <div class="pillar glass-card tilt-card reveal" data-reveal data-reveal-delay="80">
+      <span class="pillar-icon">◈</span>
+      <h3>Diseño centrado en UX</h3>
+      <p>Cada decisión visual responde a una necesidad real de quien usa el producto.</p>
+    </div>
+    <div class="pillar glass-card tilt-card reveal" data-reveal data-reveal-delay="160">
+      <span class="pillar-icon">✺</span>
+      <h3>Email marketing</h3>
+      <p>Campañas responsivas en Figma, Illustrator y Klaviyo orientadas a conversión.</p>
+    </div>
+    <div class="pillar glass-card tilt-card reveal" data-reveal data-reveal-delay="240">
+      <span class="pillar-icon">∞</span>
+      <h3>Resolución de problemas</h3>
+      <p>De la idea al despliegue, sin perder de vista el rendimiento ni la marca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="section" id="skills">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Skills &amp; Stack</p>
+    <h2 class="section-title">Herramientas que <span class="text-accent">domino</span></h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card glass-card reveal" data-reveal>
+      <div class="skill-card-top">
+        <span class="skill-icon">{ }</span>
+        <h3>Lenguajes</h3>
+      </div>
+      <ul class="skill-list">
+        <li><span>JavaScript</span><div class="skill-bar"><div class="skill-bar-fill" data-level="88"></div></div></li>
+        <li><span>C#</span><div class="skill-bar"><div class="skill-bar-fill" data-level="80"></div></div></li>
+        <li><span>HTML5 / CSS3</span><div class="skill-bar"><div class="skill-bar-fill" data-level="95"></div></div></li>
+        <li><span>SQL Server</span><div class="skill-bar"><div class="skill-bar-fill" data-level="75"></div></div></li>
+      </ul>
+    </div>
+
+    <div class="skill-card glass-card reveal" data-reveal data-reveal-delay="80">
+      <div class="skill-card-top">
+        <span class="skill-icon">▣</span>
+        <h3>Frameworks &amp; .NET</h3>
+      </div>
+      <ul class="skill-list">
+        <li><span>.NET</span><div class="skill-bar"><div class="skill-bar-fill" data-level="78"></div></div></li>
+        <li><span>React</span><div class="skill-bar"><div class="skill-bar-fill" data-level="70"></div></div></li>
+        <li><span>Node.js</span><div class="skill-bar"><div class="skill-bar-fill" data-level="68"></div></div></li>
+      </ul>
+    </div>
+
+    <div class="skill-card glass-card reveal" data-reveal data-reveal-delay="160">
+      <div class="skill-card-top">
+        <span class="skill-icon">✎</span>
+        <h3>Diseño</h3>
+      </div>
+      <ul class="skill-list">
+        <li><span>Figma</span><div class="skill-bar"><div class="skill-bar-fill" data-level="92"></div></div></li>
+        <li><span>Illustrator</span><div class="skill-bar"><div class="skill-bar-fill" data-level="85"></div></div></li>
+        <li><span>Klaviyo</span><div class="skill-bar"><div class="skill-bar-fill" data-level="88"></div></div></li>
+      </ul>
+    </div>
+
+    <div class="skill-card glass-card reveal" data-reveal data-reveal-delay="240">
+      <div class="skill-icon-top">
+        <span class="skill-icon">✦</span>
+        <h3>Otros</h3>
+      </div>
+      <ul class="skill-list">
+        <li><span>Git / GitHub</span><div class="skill-bar"><div class="skill-bar-fill" data-level="84"></div></div></li>
+        <li><span>Accesibilidad Web</span><div class="skill-bar"><div class="skill-bar-fill" data-level="80"></div></div></li>
+        <li><span>SEO básico</span><div class="skill-bar"><div class="skill-bar-fill" data-level="72"></div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE / EDUCATION / TIMELINE ===== -->
+<section class="section" id="experience">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Trayectoria</p>
+    <h2 class="section-title">Experiencia &amp; <span class="text-accent">Educación</span></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item reveal" data-reveal>
+      <div class="timeline-dot"></div>
+      <div class="glass-card timeline-card">
+        <span class="timeline-tag">Experiencia</span>
+        <h3>Web &amp; Email Developer</h3>
+        <p class="timeline-meta">Freelance · República Dominicana</p>
+        <p>Desarrollo de sitios web responsivos y campañas de email marketing para clientes en distintas industrias, usando HTML, CSS, JavaScript y Klaviyo.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item timeline-item--right reveal" data-reveal data-reveal-delay="100">
+      <div class="timeline-dot"></div>
+      <div class="glass-card timeline-card">
+        <span class="timeline-tag">Experiencia</span>
+        <h3>UX/UI Designer</h3>
+        <p class="timeline-meta">Proyectos independientes</p>
+        <p>Procesos de wireframing a alta fidelidad en Figma, sistemas de diseño y pruebas de usabilidad para apps y sitios web.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal" data-reveal data-reveal-delay="200">
+      <div class="timeline-dot"></div>
+      <div class="glass-card timeline-card">
+        <span class="timeline-tag">Educación</span>
+        <h3>Desarrollo de Software</h3>
+        <p class="timeline-meta">Formación técnica</p>
+        <p>Fundamentos de programación, bases de datos con SQL Server y desarrollo backend con C# y .NET.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Mis servicios</p>
+    <h2 class="section-title">Calidad que <span class="text-accent">inspira</span></h2>
+    <p class="section-sub">Convierto tus ideas en un proyecto web único, pensado para ti y para tus clientes.</p>
+  </div>
+
+  <div class="services-grid">
+    <article class="service-card glass-card tilt-card reveal" data-reveal>
+      <span class="service-num">01</span>
+      <h3>Email Design</h3>
+      <p>Campañas de email responsivas, diseñadas y codificadas con Figma, Illustrator y Klaviyo — storytelling visual con HTML limpio orientado a conversión.</p>
+    </article>
+    <article class="service-card glass-card tilt-card reveal" data-reveal data-reveal-delay="80">
+      <span class="service-num">02</span>
+      <h3>UI/UX Design</h3>
+      <p>De wireframes en Figma a interfaces pixel-perfect, con foco en usabilidad, accesibilidad y sistemas de diseño coherentes.</p>
+    </article>
+    <article class="service-card glass-card tilt-card reveal" data-reveal data-reveal-delay="160">
+      <span class="service-num">03</span>
+      <h3>Web Design</h3>
+      <p>Sitios web modernos y responsivos con código limpio: HTML, CSS, JavaScript y .NET para que cada proyecto funcione tan bien como se ve.</p>
+    </article>
+    <article class="service-card glass-card tilt-card reveal" data-reveal data-reveal-delay="240">
+      <span class="service-num">04</span>
+      <h3>App Design</h3>
+      <p>Interfaces de apps móviles consistentes y fáciles de usar, estructuradas para una experiencia fluida en cualquier plataforma.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section" id="projects">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Portfolio</p>
+    <h2 class="section-title">Proyectos <span class="text-accent">recientes</span></h2>
+    <p class="section-sub">Una selección de mi trabajo más reciente en diseño y desarrollo.</p>
+  </div>
+
+  <div class="projects-filter reveal" data-reveal>
+    <button class="filter-btn is-active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="web">Web Design</button>
+    <button class="filter-btn" data-filter="ux">UI/UX</button>
+    <button class="filter-btn" data-filter="email">Email Design</button>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+    <article class="project-card glass-card tilt-card reveal" data-reveal data-cat="web">
+      <div class="project-media project-media--a">
+        <img src="assets/images/project-1.jpg" alt="E-commerce Storefront" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+        <h3>E-commerce Storefront</h3>
+        <p>Tienda online responsiva con carrito interactivo y checkout optimizado para conversión.</p>
+        <div class="project-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn-mini magnetic">Ver demo ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-mini btn-mini--ghost magnetic">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card glass-card tilt-card reveal" data-reveal data-reveal-delay="80" data-cat="ux">
+      <div class="project-media project-media--b">
+        <img src="assets/images/project-2.jpg" alt="App de Educación" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span>Figma</span><span>UX</span></div>
+        <h3>App de Educación</h3>
+        <p>Diseño de producto end-to-end para una plataforma de aprendizaje, de wireframe a UI final.</p>
+        <div class="project-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn-mini magnetic">Ver demo ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-mini btn-mini--ghost magnetic">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card glass-card tilt-card reveal" data-reveal data-reveal-delay="160" data-cat="email">
+      <div class="project-media project-media--c">
+        <img src="assets/images/project-3.jpg" alt="Campaña de Lanzamiento" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span>Klaviyo</span><span>Email</span></div>
+        <h3>Campaña de Lanzamiento</h3>
+        <p>Serie de emails responsivos para el lanzamiento de producto con foco en storytelling visual.</p>
+        <div class="project-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn-mini magnetic">Ver demo ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-mini btn-mini--ghost magnetic">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card glass-card tilt-card reveal" data-reveal data-cat="web">
+      <div class="project-media project-media--d">
+        <img src="assets/images/project-4.jpg" alt="Panel de Gestión Interna" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span>.NET</span><span>SQL</span></div>
+        <h3>Panel de Gestión Interna</h3>
+        <p>Sistema de gestión con backend en C# / .NET y SQL Server, e interfaz limpia para uso diario.</p>
+        <div class="project-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn-mini magnetic">Ver demo ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-mini btn-mini--ghost magnetic">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card glass-card tilt-card reveal" data-reveal data-reveal-delay="80" data-cat="ux">
+      <div class="project-media project-media--e">
+        <img src="assets/images/project-5.jpg" alt="Identidad de Marca Digital" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span>UI</span><span>Branding</span></div>
+        <h3>Identidad de Marca Digital</h3>
+        <p>Sistema de diseño y guía de marca para una startup, con componentes UI reutilizables.</p>
+        <div class="project-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn-mini magnetic">Ver demo ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-mini btn-mini--ghost magnetic">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card glass-card tilt-card reveal" data-reveal data-reveal-delay="160" data-cat="web">
+      <div class="project-media project-media--f">
+        <img src="assets/images/project-6.jpg" alt="Portfolio Interactivo" loading="lazy" onerror="this.remove()" />
+      </div>
+      <div class="project-body">
+        <div class="project-tags"><span>JS</span><span>Responsive</span></div>
+        <h3>Portfolio Interactivo</h3>
+        <p>Sitio personal con animaciones a medida, scroll reveal y micro-interacciones.</p>
+        <div class="project-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn-mini magnetic">Ver demo ↗</a>
+          <a href="#" target="_blank" rel="noopener" class="btn-mini btn-mini--ghost magnetic">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="testimonials">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Testimonios</p>
+    <h2 class="section-title">Lo que dicen de <span class="text-accent">mi trabajo</span></h2>
+  </div>
+
+  <div class="testimonials-track reveal" data-reveal>
+    <div class="testimonial-card glass-card">
+      <p>“Entregó el diseño completo del email mucho antes de lo esperado, con una atención al detalle impecable.”</p>
+      <div class="testimonial-author">
+        <span class="testimonial-avatar">A.R.</span>
+        <div><strong>Cliente de Marketing</strong><br/><small>Campaña de email</small></div>
+      </div>
+    </div>
+    <div class="testimonial-card glass-card">
+      <p>“Tradujo nuestro brief en una interfaz limpia y fácil de usar. Excelente comunicación durante todo el proyecto.”</p>
+      <div class="testimonial-author">
+        <span class="testimonial-avatar">M.S.</span>
+        <div><strong>Founder de Startup</strong><br/><small>UI/UX</small></div>
+      </div>
+    </div>
+    <div class="testimonial-card glass-card">
+      <p>“El sitio quedó rápido, responsivo y con un acabado muy profesional. Lo recomiendo sin duda.”</p>
+      <div class="testimonial-author">
+        <span class="testimonial-avatar">J.P.</span>
+        <div><strong>Cliente Web</strong><br/><small>Desarrollo Web</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section section--contact" id="contact">
+  <div class="section-head reveal" data-reveal>
+    <p class="eyebrow">Contacto</p>
+    <h2 class="section-title">Trabajemos <span class="text-accent">juntas</span></h2>
+    <p class="section-sub">Diseño y codifico cosas hermosamente simples. Cuéntame sobre tu proyecto.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal" data-reveal>
+      <div class="contact-info-item">
+        <span class="contact-icon">✉</span>
+        <div><strong>Email</strong><br/><a href="mailto:tanishamaria2@gmail.com">tanishamaria2@gmail.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <span class="contact-icon">☏</span>
+        <div><strong>Teléfono</strong><br/><a href="tel:+18295243764">+1 (829) 524-3764</a></div>
+      </div>
+      <div class="contact-info-item">
+        <span class="contact-icon">⌖</span>
+        <div><strong>Dirección</strong><br/>Santo Domingo, República Dominicana</div>
+      </div>
+      <div class="contact-socials">
+        <a href="https://github.com/tanishamarr1" target="_blank" rel="noopener" class="magnetic">GitHub</a>
+        <a href="https://www.linkedin.com/in/tanishaamr1/" target="_blank" rel="noopener" class="magnetic">LinkedIn</a>
+        <a href="https://www.instagram.com/tanishaamr_/" target="_blank" rel="noopener" class="magnetic">Instagram</a>
+      </div>
+    </div>
+
+    <form class="contact-form glass-card reveal" data-reveal data-reveal-delay="100" id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <input type="text" id="cf-name" name="name" placeholder=" " required />
+          <label for="cf-name">Nombre</label>
+          <span class="form-error" data-error="name"></span>
+        </div>
+        <div class="form-field">
+          <input type="email" id="cf-email" name="email" placeholder=" " required />
+          <label for="cf-email">Email</label>
+          <span class="form-error" data-error="email"></span>
+        </div>
+      </div>
+      <div class="form-field">
+        <input type="text" id="cf-subject" name="subject" placeholder=" " required />
+        <label for="cf-subject">Asunto</label>
+        <span class="form-error" data-error="subject"></span>
+      </div>
+      <div class="form-field">
+        <textarea id="cf-message" name="message" rows="5" placeholder=" " required></textarea>
+        <label for="cf-message">Mensaje</label>
+        <span class="form-error" data-error="message"></span>
+      </div>
+      <button type="submit" class="btn btn-primary magnetic" id="contactSubmit">
+        <span class="btn-label">Enviar mensaje</span>
+        <span class="btn-arrow">→</span>
+      </button>
+      <p class="form-status" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#home" class="nav-logo">TM<span class="dot">.</span></a>
+      <p>Creando experiencias digitales que inspiran y conectan personas en todo el mundo.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <a href="#home">Home</a>
+      <a href="#services">Servicios</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#contact">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Sígueme</h4>
+      <a href="https://github.com/tanishamarr1" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/tanishaamr1/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/tanishaamr_/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=100051513095793" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Tanisha María. Todos los derechos reservados.</span>
+    <a href="#home" class="back-to-top magnetic">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script src="js/cursor.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/robot.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
