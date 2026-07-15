@@ -41,12 +41,11 @@ body{
   font-weight:400;
   line-height:1.6;
   overflow-x:hidden;
-  cursor:none;
 }
 
 a{ color:inherit; text-decoration:none; }
 ul{ list-style:none; }
-button{ font-family:inherit; border:none; background:none; cursor:none; }
+button{ font-family:inherit; border:none; background:none; cursor:pointer; }
 input, textarea{ font-family:inherit; }
 
 img, svg{ display:block; max-width:100%; }
@@ -467,20 +466,4 @@ img, svg{ display:block; max-width:100%; }
   background:linear-gradient(90deg, var(--pink), var(--pink-soft));
 }
 
-/* ===== custom cursor ===== */
-.cursor-dot, .cursor-ring{
-  position:fixed; top:0; left:0; border-radius:50%; pointer-events:none; z-index:999;
-  transform:translate(-50%,-50%);
-}
-.cursor-dot{ width:6px; height:6px; background:var(--pink); }
-.cursor-ring{
-  width:32px; height:32px; border:1px solid var(--pink-soft);
-  transition:width .25s var(--ease), height .25s var(--ease), opacity .25s var(--ease), border-color .25s var(--ease);
-  box-shadow:0 0 18px var(--pink-dim);
-}
-.cursor-ring.is-active{ width:54px; height:54px; background:var(--pink-dim); border-color:transparent; }
 
-@media (hover:none){
-  .cursor-dot, .cursor-ring{ display:none; }
-  body, button, a{ cursor:auto; }
-}
