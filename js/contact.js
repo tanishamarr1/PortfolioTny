@@ -1,11 +1,26 @@
 /* ===========================================================
-   contact.js — client-side validation for the contact form
+   contact.js — client-side validation + EmailJS sending
    =========================================================== */
 (function(){
   const form = document.getElementById('contactForm');
   if(!form) return;
   const status = document.getElementById('formStatus');
   const submitBtn = document.getElementById('contactSubmit');
+
+  /* ------------------------------------------------------------
+     EmailJS config — reemplaza estos 3 valores con los tuyos:
+     1. PUBLIC_KEY  -> Account > General > Public Key
+     2. SERVICE_ID  -> Email Services > tu servicio conectado
+     3. TEMPLATE_ID -> Email Templates > tu plantilla
+     Guía: https://www.emailjs.com/docs/
+     ------------------------------------------------------------ */
+  const EMAILJS_PUBLIC_KEY = 'EQY3cMzeYUqFvpJuO';
+  const EMAILJS_SERVICE_ID = 'service_nu0ylcl';
+  const EMAILJS_TEMPLATE_ID = 'template_98m529f';
+
+  if (window.emailjs) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
 
   const rules = {
     name: v => v.trim().length >= 2 || 'Escribe tu nombre completo.',
@@ -50,14 +65,35 @@
     submitBtn.querySelector('.btn-label').textContent = 'Enviando...';
     submitBtn.style.pointerEvents = 'none';
 
-    // Simulated send — replace with a real endpoint (e.g. fetch to your backend
-    // or a service like Formspree) when you deploy this site.
-    setTimeout(() => {
-      status.textContent = '¡Mensaje enviado! Te responderé pronto.';
-      status.style.color = 'var(--pink-soft)';
+    if (!window.emailjs) {
+      status.textContent = 'No se pudo cargar el servicio de envío. Intenta de nuevo más tarde.';
+      status.style.color = '#ff6b6b';
       submitBtn.querySelector('.btn-label').textContent = 'Enviar mensaje';
       submitBtn.style.pointerEvents = 'auto';
-      form.reset();
-    }, 1200);
+      return;
+    }
+
+    const templateParams = {
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      subject: form.elements.subject.value.trim(),
+      message: form.elements.message.value.trim()
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(() => {
+        status.textContent = '¡Mensaje enviado! Te responderé pronto.';
+        status.style.color = 'var(--pink-soft)';
+        form.reset();
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        status.textContent = 'Hubo un error al enviar. Intenta de nuevo o escríbeme directo por correo.';
+        status.style.color = '#ff6b6b';
+      })
+      .finally(() => {
+        submitBtn.querySelector('.btn-label').textContent = 'Enviar mensaje';
+        submitBtn.style.pointerEvents = 'auto';
+      });
   });
 })();
